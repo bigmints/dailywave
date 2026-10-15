@@ -1,91 +1,168 @@
-# 🌊 DailyWave
+<p align="center">
+  <img src="assets/banner.png" alt="DailyWave: an ADHD-friendly flow planner that shows one clear next step" width="100%">
+</p>
 
-[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-[![Stars](https://img.shields.io/github/stars/kks0488/dailywave.svg?style=social)](https://github.com/kks0488/dailywave)
-[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+<p align="center">
+  <b>English</b> · <a href="README.ko.md"><b>한국어</b></a>
+</p>
 
-> **"One clear next step. Then the next."**
+<h2 align="center">Too much to do?<br>DailyWave shows you one clear next step. Then the next.</h2>
 
-DailyWave is an ADHD-friendly flow planner that turns messy to-do lists into a calm, guided sequence.
-It recommends one task you can start now, shows only the next step, and blends routines with projects in a
-single focused view.
+<p align="center">
+  An ADHD-friendly planner that turns a messy to-do list into calm, step-by-step flows.<br>
+  Works without an account. AI help with Gemini is optional.
+</p>
 
-[**🚀 Try it live (https://dailywave.vercel.app/)**](https://dailywave.vercel.app/)
-Deployment status: Live on Vercel (https://dailywave.vercel.app/)
+<p align="center">
+  <a href="https://dailywave.vercel.app"><img src="https://img.shields.io/badge/live%20demo-dailywave.vercel.app-0ea5e9?style=flat-square" alt="Live demo"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/kks0488/dailywave?style=flat-square" alt="License"></a>
+  <a href="https://github.com/kks0488/dailywave/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/kks0488/dailywave/ci.yml?branch=main&style=flat-square&label=CI" alt="CI"></a>
+  <img src="https://img.shields.io/github/languages/top/kks0488/dailywave?style=flat-square" alt="Top language">
+  <img src="https://img.shields.io/github/last-commit/kks0488/dailywave?style=flat-square" alt="Last commit">
+  <a href="https://github.com/kks0488/dailywave/stargazers"><img src="https://img.shields.io/github/stars/kks0488/dailywave?style=flat-square" alt="Stars"></a>
+</p>
 
-## Screenshot
+<table>
+<tr>
+<td width="50%" valign="top">
 
-![DailyWave landing page](docs/assets/landing.png)
+### One clear next step
+The home screen picks a single task you can start now — the active step of a flow or your next routine — and hides the rest.
 
-## What you will see in 60 seconds
+</td>
+<td width="50%" valign="top">
 
-1. See **one clear next step** (local-first, optional AI).
-2. Use **Chaos Dump** to capture everything (save anytime).
-3. (Optional) Use AI to organize chaos into structured workflows/routines.
-4. Sync across devices after signing in (Supabase Cloud).
+### Chaos Dump
+Type everything on your mind and save it to the Chaos Inbox so nothing gets lost. With AI connected, it is organized into flows and routines.
 
-## Screenshot links
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
 
-- Landing page: `https://dailywave.vercel.app/?landing=1`
+### Flows and routines together
+Projects become step-by-step flows that unlock one step at a time. Morning and afternoon routines sit beside them in one view.
 
-## Key features
+</td>
+<td width="50%" valign="top">
 
-- **One clear next step** (local-first, optional AI)
-- **Simple Mode (default)**: fewer buttons, Chaos Dump-centric home
-- **"What's Next?" AI (Gemini, optional)** for energy-aware recommendations
-- **memU Integration (optional)** for personalized AI context from past behavior
-- **Time Buddy** visual countdown timer that makes time feel real
-- **Flow-based workflows** with clear next-step logic
-- **Drag-and-drop** workflows and steps
-- **Daily routines** alongside projects in one timeline
-- **Live calendar sync** via standard `.ics` feeds
-- **Multi-language UI** (EN/DE/KR/JA/ZH) and dark mode
-- **Supabase cloud sync** for logged-in users (guest mode also supported)
-- **Auto-save** so progress never disappears
+### Small wins count
+The Victory Wall shows what you tried and finished today, with a gentle, no-shame summary and a suggested first step for tomorrow.
 
-> Auth providers: The UI is **Google-only by default**. You can enable Apple/GitHub in the login modal via `VITE_AUTH_PROVIDERS`.
+</td>
+</tr>
+</table>
+
+## Try it
+
+Open the live app: **[dailywave.vercel.app](https://dailywave.vercel.app)** — no sign-up needed; guest data stays in your browser.
+
+1. Write everything in **Chaos Dump** and press **Save to Inbox**.
+2. Add a flow with **+**, or a routine from the sidebar.
+3. Follow **One clear next step**. Finish it, and the next step unlocks.
+
+Optional: add a Gemini API key in **Settings** for AI suggestions, or sign in with Google to sync across devices.
+
+## Run it locally
+
+Frontend only (enough to use the app):
+
+```bash
+git clone https://github.com/kks0488/dailywave.git
+cd dailywave/frontend
+npm install
+npm run dev        # http://localhost:3005
+```
+
+Full stack with Docker (frontend, FastAPI backend and a memU server):
+
+```bash
+cp backend/.env.example backend/.env
+docker-compose up -d
+# Web UI   http://localhost:3020
+# API docs http://localhost:8020/docs
+```
+
+## Screenshots
+
+<p align="center">
+  <img src="assets/screenshot.png" alt="DailyWave home: routines on the left, Chaos Dump and one clear next step in the center" width="100%">
+</p>
+<p align="center">
+  <img src="assets/screenshot-dark.png" alt="DailyWave flows in dark mode, each with the current step marked Now" width="100%">
+</p>
+<p align="center"><sub>Captured from a local run with sample tasks (no real user data).</sub></p>
 
 ## How it works
 
-1. Create nodes for tasks or routines.
-2. Connect nodes into a flow that defines order.
-3. The engine finds the next actionable step.
-4. Progress updates instantly and syncs to calendar feeds.
-
-## Quick start
-
-### Docker (recommended)
-
-```bash
-git clone https://github.com/kkaemo/dailywave.git
-cd dailywave
-docker-compose up -d
+```mermaid
+flowchart LR
+  D[Chaos Dump] --> IN[(Chaos Inbox)]
+  IN -->|optional Gemini| F["Flows F[Flows & routines] routines"]
+  F --> N{Next step engine}
+  N --> U[One clear next step]
+  U -->|done| N
+  F --> L[(localStorage)]
+  L -. signed in .-> S[(Supabase sync)]
+  F -. backend .-> C[".ics calendar feed"]
 ```
 
-- Web UI: `http://localhost:3020`
-- API docs: `http://localhost:8020/docs`
+Each flow is an ordered list of steps; finishing the active step unlocks the next one. Data is saved in the browser automatically. The optional FastAPI backend adds a server-side Gemini proxy with rate limiting, JSON persistence, an `.ics` calendar feed and memU memory.
 
-### Local development
+## FAQ
 
-#### Backend (FastAPI)
+**Do I need an account?**
+No. Guest mode stores everything in your browser. Sign in only if you want cloud sync.
+
+**Is AI required?**
+No. The next-step logic, Chaos Inbox, routines and Victory Wall work without AI. Gemini adds suggestions and auto-organizing.
+
+**Which languages are supported?**
+English, Korean, Japanese, Chinese and German, plus dark mode.
+
+## Roadmap
+
+Planned, not yet built (from [`docs/ROADMAP.md`](docs/ROADMAP.md)):
+
+- Native mobile app (a Flutter shell and a SwiftUI prototype exist in `mobile/` and `ios-swift/`)
+- A proper DAG executor for complex flows
+- Playwright end-to-end tests
+
+<details>
+<summary><b>Technical details</b></summary>
+
+### More features
+
+- **Simple Mode** (default): fewer buttons, Chaos Dump-centric home.
+- **"What's Next?" AI** (Gemini, optional): energy-aware recommendations and an AI command box (e.g. "Add exercise to routine at 9am").
+- **Flow Recipes**: save a flow as a reusable template.
+- **Drag and drop** for flows and steps; **undo/redo** with `Cmd/Ctrl+Z` and `Cmd/Ctrl+Shift+Z`; `Cmd/Ctrl+?` lists shortcuts.
+- **Calendar feed**: subscribe to `/api/calendar/feed` (`.ics`) from any calendar app.
+- **memU integration** (optional): personalized AI context from past behavior.
+- **Auth**: Google by default. Apple and GitHub can be enabled with `VITE_AUTH_PROVIDERS`.
+
+### Tech stack
+
+| Part | Technology |
+| --- | --- |
+| Frontend | React 18, Vite 7, Zustand, i18next, Lucide icons |
+| Backend | FastAPI, Pydantic, iCalendar, httpx |
+| Services (optional) | Supabase (auth + sync), memU (AI memory), Redis (rate limit) |
+| Tests | Vitest (frontend), pytest (backend), GitHub Actions CI |
+| Deploy | Vercel (frontend), Docker or PM2 |
+
+### Local development (backend)
+
 ```bash
 cd backend
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+source venv/bin/activate   # Windows: venv\Scripts\activate
 pip install -r requirements.txt
+cp .env.example .env
 uvicorn main:app --host 0.0.0.0 --port 8020 --reload
 ```
 
-#### Frontend (React + Vite)
-```bash
-cd frontend
-npm install
-cp .env.example .env  # Optional: add your Gemini API key
-npm run dev
-```
-
-Default dev URL: `http://localhost:3005` (see `frontend/vite.config.js`)
+Frontend settings live in `frontend/.env.example` (`VITE_API_URL`, Supabase keys, `VITE_GEMINI_API_KEY`, `VITE_AUTH_PROVIDERS`). The backend keeps its Gemini key server-side (`GEMINI_API_KEY`) and can require a Supabase token for AI calls.
 
 ### Production (PM2)
 
@@ -94,126 +171,59 @@ npm install pm2 -g
 pm2 start ecosystem.config.js
 ```
 
-## Tech stack
-
-### Frontend
-- **React 18** + **Vite**
-- **Zustand** for state
-- **Lucide React** icons
-- **Modern CSS** with glassmorphism-inspired UI
-
-### Backend
-- **FastAPI** for async APIs
-- **Pydantic** for validation
-- **iCalendar** for `.ics` feeds
-- **httpx** for async HTTP (AI proxy, memU)
-
-### Services (optional)
-- **memU** for AI memory and personalization
-- **Supabase** for auth and cloud sync
-
-### DevOps
-- **Docker** for local/production parity
-- **PM2** for process management
-
-## API overview
+### API overview
 
 | Endpoint | Method | Description |
 | :--- | :---: | :--- |
-| `/` | `GET` | Health check & version |
+| `/` | `GET` | Health check and version |
 | `/health` | `GET` | Health status |
 | `/api/persistence/load` | `GET` | Load saved state |
 | `/api/persistence/save` | `POST` | Save app state |
 | `/api/calendar/feed` | `GET` | `.ics` calendar feed |
 | `/execute` | `POST` | Run a workflow pipeline |
+| `/api/ai/status` | `GET` | Whether server-side AI is available |
 | `/api/ai/ask` | `POST` | AI proxy (Gemini + memU context) |
-| `/api/memory/track` | `POST` | Track user behavior for memU |
+| `/api/memory/track` | `POST` | Track behavior for memU |
+| `/api/auth/account` | `DELETE` | Delete the signed-in account |
 
-For full API documentation, see [`docs/API.md`](docs/API.md).
+Full reference: [`docs/API.md`](docs/API.md).
 
-## Project structure
+### Project structure
 
 ```text
 dailywave/
-├── frontend/             # React + Vite application
-│   ├── src/
-│   │   ├── components/   # UI components
-│   │   ├── store/        # Zustand stores
-│   │   ├── lib/          # Utilities (gemini, supabase, memoryTracker)
-│   │   └── locales/      # i18n translations (en/ko/ja/zh)
-│   └── public/           # Static assets
-├── backend/              # FastAPI application
-│   ├── main.py           # App entry point
+├── frontend/             # React + Vite app
+│   └── src/
+│       ├── components/   # UI (command center, What's Next, Chaos Inbox, auth…)
+│       ├── store/        # Zustand stores
+│       ├── hooks/        # Persistence sync, AI availability
+│       ├── lib/          # Gemini client, Supabase sync, prompts, parsers
+│       └── locales/      # en / ko / ja / zh / de
+├── backend/              # FastAPI app
+│   ├── main.py           # Entry point
 │   ├── executor.py       # Workflow execution (SSRF-protected)
 │   ├── storage.py        # Thread-safe JSON persistence
 │   ├── ai_proxy.py       # Server-side Gemini proxy
+│   ├── rate_limiter.py   # AI rate limiting (memory or Redis)
 │   ├── memory_service.py # memU integration
-│   ├── auth.py           # API key middleware
-│   └── data/             # Persistent storage
-├── docs/                 # Documentation
-├── docker-compose.yml    # Container orchestration (+ memU)
+│   └── calendar_gen.py   # .ics feed
+├── mobile/               # Flutter shell (early)
+├── ios-swift/            # SwiftUI prototype
+├── docs/                 # Architecture, API, Supabase setup, roadmap
+├── docker-compose.yml    # frontend + backend + memU
 └── ecosystem.config.js   # PM2 config
 ```
 
-## Internationalization
+### Documentation
 
-- 🇺🇸 English
-- 🇩🇪 Deutsch
-- 🇰🇷 Korean
-- 🇯🇵 Japanese
-- 🇨🇳 Chinese
+[Architecture](docs/ARCHITECTURE.md) · [API](docs/API.md) · [Supabase setup](docs/SUPABASE_SETUP.md) · [Deployment guide](deployment_guide.md) · [Roadmap](docs/ROADMAP.md) · [Changelog](CHANGELOG.md) · [Contributing](CONTRIBUTING.md)
 
-## Documentation
+### Trademark
 
-- [Architecture Overview](docs/ARCHITECTURE.md) - System design and data flow
-- [API Reference](docs/API.md) - Complete API documentation
-- [Supabase Setup](docs/SUPABASE_SETUP.md) - Auth and cloud sync setup
-- [Status (2026-01-30)](docs/STATUS_2026-01-30.md) - Recent changes + setup checklist
-- [Deployment Guide](deployment_guide.md) - Ubuntu/Docker/PM2 deployment
-- [Roadmap](docs/ROADMAP.md) - Current status and future plans
-- [Creative Features](docs/CREATIVE_FEATURES.md) - Next-gen feature blueprints
-- [Changelog](CHANGELOG.md) - Version history
-- [Contributing](CONTRIBUTING.md) - How to contribute
+"DailyWave" and the DailyWave logo are trademarks of the original author. You may fork and modify the code under Apache-2.0, but please do not use the name or branding to promote derived products without permission.
 
-## Contributing
-
-1. Fork the project
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m "Add some AmazingFeature"`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a pull request
-
-## Open Source & Future Plans
-
-DailyWave is a **personal, open-source project** created to explore a more humane,
-ADHD-friendly approach to productivity and daily workflows.
-
-The core application is fully open source and can be freely **self-hosted, modified,
-and extended** under the terms of the Apache-2.0 License.
-
-If there is sufficient interest in the future, **optional hosted services or premium
-features** (such as cloud sync, enhanced AI recommendations, or mobile integrations)
-may be offered. These would always remain **optional**, and self-hosting will continue
-to be supported.
-
-This project is developed and maintained by an individual in their spare time.
-As such, there are **no guarantees or commercial commitments**, but feedback,
-ideas, and contributions are always welcome ❤️
-
-## Trademark Notice
-
-“DailyWave” and the DailyWave logo are **trademarks of the original author**.
-
-You are free to fork and modify this project under the Apache-2.0 License,
-but you may not use the “DailyWave” name or branding to promote derived
-products or services without explicit permission.
+</details>
 
 ## License
 
-Distributed under the Apache-2.0 License. See `LICENSE` for details.
-
----
-
-<p align="center">
-  Built with ❤️ by <a href="https://github.com/kkaemo">kkaemo</a>
-</p>
+[Apache-2.0](LICENSE) © Kyoungsoo Kim
