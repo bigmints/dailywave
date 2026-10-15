@@ -57,3 +57,4 @@ backend/data/
 # Local work logs
 .vibe/
 .vc/
+PROJECT_PORTS.md
