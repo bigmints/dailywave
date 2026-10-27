@@ -9,6 +9,7 @@ workspace = "frontend"
 
 [[setup.steps]]
 kind = "dependencies"
+working_directory = "frontend"
 locked = true
 
 [[setup.steps]]
