@@ -63,6 +63,12 @@ Open the live app: **[dailywave.vercel.app](https://dailywave.vercel.app)** — 
 
 Optional: add a Gemini API key in **Settings** for AI suggestions, or sign in with Google to sync across devices.
 
+## Launch with PicoRunner
+
+[![Launch on PicoRunner](https://picorunner.com/badges/launch.svg)](https://picorunner.com/launch/?repository=https%3A%2F%2Fgithub.com%2Fkks0488%2Fdailywave)
+
+PicoRunner reviews the repository setup, builds the frontend, and runs it locally in guest mode. Guest data remains in browser storage in the same profile and origin; the optional AI backend and cloud sync are not configured.
+
 ## Run it locally
 
 Frontend only (enough to use the app):
